@@ -7,6 +7,6 @@ export const Reviews = model("reviews", reviewSchema);
 export const Users = model("users", userSchema);
 export async function connectDB() {
   await connect(
-    `mongodb+srv:${process.env.DB_NAME}//:${process.env.DB_PASSWORD}${process.env.DB_URL}`
+    `mongodb+srv://${process.env.DB_NAME}:${process.env.DB_PASSWORD}${process.env.DB_URL}`
   );
 }
