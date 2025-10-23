@@ -16,7 +16,7 @@ const STORAGE_KEY = "auth_state";
 
 export const authService = {
   save(state: AuthState) {
-    delete state.user.isAdmin;
+    delete state.user?.isAdmin;
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   },
   load(): AuthState {
