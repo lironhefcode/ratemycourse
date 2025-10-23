@@ -1,13 +1,12 @@
 import axios from "axios";
+import url from "./serverHelper";
 type signature = {
   signature: string;
   timestamp: string;
 };
 async function getSignture() {
   try {
-    const sigRes = await axios.get<signature>(
-      "http://localhost:3000/upload/signature"
-    );
+    const sigRes = await axios.get<signature>(`${url}/upload/signature`);
     const { signature, timestamp } = sigRes.data;
     return { signature, timestamp };
   } catch (error) {

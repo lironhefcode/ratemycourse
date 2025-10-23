@@ -1,6 +1,7 @@
 import axios from "axios";
 import { upload } from "./uploadService";
 import { Review } from "@/data/mockData";
+import url from "./serverHelper";
 interface ReviewData {
   courseId: string;
   byUser: string;
@@ -10,9 +11,7 @@ interface ReviewData {
 }
 export const reviewService = {
   async getReviews(courseId: string) {
-    const { data: reviews } = await axios.get(
-      `http://localhost:3000/reviews/${courseId}`
-    );
+    const { data: reviews } = await axios.get(`${url}/reviews/${courseId}`);
     console.log(reviews);
     return reviews;
   },
@@ -26,16 +25,14 @@ export const reviewService = {
         proofUrl: fileUrl,
       };
     }
-    const { data } = await axios.post(`http://localhost:3000/reviews/`, {
+    const { data } = await axios.post(`${url}/reviews/`, {
       review,
     });
     return data;
   },
   async getUnVerified() {
     try {
-      const reviews = await axios.get<Review[]>(
-        `http://localhost:3000/reviews/unverified`
-      );
+      const reviews = await axios.get<Review[]>(`${url}/reviews/unverified`);
       return reviews.data;
     } catch (error) {}
   },

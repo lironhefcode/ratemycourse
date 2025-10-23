@@ -3,6 +3,7 @@ import axios from "axios";
 import { useAuth } from "@/providers/auth";
 import { AuthState } from "@/services/auth.service";
 import { useNavigate } from "react-router-dom";
+import url from "@/services/serverHelper";
 
 export const useLogin = () => {
   const nav = useNavigate();
@@ -11,7 +12,7 @@ export const useLogin = () => {
     flow: "auth-code",
     onSuccess: async ({ code }) => {
       const { data }: { data: AuthState } = await axios.post(
-        "http://localhost:3000/auth/google/login",
+        `${url}/auth/google/login`,
         { code }
       );
       console.log(data);
