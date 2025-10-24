@@ -1,4 +1,4 @@
-import { Star, Upload } from "lucide-react";
+import { Check, Star, Upload } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "./ui/card";
 import { useCallback } from "react";
@@ -93,8 +93,8 @@ export function ReviewForm({ courseId, setReviews }: ReviewFormProps) {
               )}
             </div>
             <div>
-              <p>{proof?.[0] ? proof[0]?.name : ""}</p>
               <Label>הוכחת רכישה (אופציונלי)</Label>
+
               <input
                 id="proof"
                 type="file"
@@ -117,19 +117,24 @@ export function ReviewForm({ courseId, setReviews }: ReviewFormProps) {
                   },
                 })}
               />
-              <label htmlFor="proof">
-                <div className="mt-2 border-2 border-dashed rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer">
-                  <Upload className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
-                  <p className="text-sm text-muted-foreground">
-                    העלה צילום מסך של הרכישה שלך
-                  </p>
-                </div>
-              </label>
+              {proof?.[0] ? (
+                <Check color="#17de77" size={64} strokeWidth={3} />
+              ) : (
+                <label htmlFor="proof">
+                  <div className="mt-2 border-2 border-dashed rounded-lg p-8 text-center hover:border-primary transition-colors cursor-pointer">
+                    <Upload className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
+                    <p className="text-sm text-muted-foreground">
+                      העלה צילום מסך של הרכישה שלך
+                    </p>
+                  </div>
+                </label>
+              )}
               {errors.proof && (
                 <p className="text-sm text-destructive mt-1">
                   {errors.proof.message as string}
                 </p>
               )}
+              <p>{proof?.[0] ? proof[0]?.name : ""}</p>
             </div>
             <Button type="submit" className="w-full">
               פרסם ביקורת

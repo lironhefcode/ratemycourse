@@ -58,6 +58,8 @@ export const courseService: CourseService = {
       });
       course.save();
       res.json(course);
-    } catch (error) {}
+    } catch (error) {
+      console.log(error);
+    }
   },
 };

@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { ShieldCheck, ShieldAlert, Star } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 import { reviewService } from "@/services/review.service";
+import { AddCourseForm } from "@/components/AddCourseForm";
 
 const Admin = () => {
   const [filter, setFilter] = useState<"all" | "pending" | "verified">("all");
@@ -32,7 +33,7 @@ const Admin = () => {
           <h1 className="text-4xl font-bold mb-2">פאנל ניהול</h1>
           <p className="text-muted-foreground">נהל ואמת ביקורות משתמשים</p>
         </div>
-
+        <AddCourseForm />
         <CardContent className="space-y-4">
           {reviews.map((review) => (
             <ReviewCard key={review._id} review={review} showActions={true} />

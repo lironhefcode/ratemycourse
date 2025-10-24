@@ -18,6 +18,7 @@ export const courseValidators = {
   addCourse: (req: Request, res: Response, next: NextFunction) => {
     const parsed = addCourseSchema.safeParse(req.body.course);
     if (!parsed.success) {
+      console.log(parsed.error);
       res.status(400).json(parsed.error);
     }
     next();
