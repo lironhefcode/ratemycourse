@@ -24,7 +24,6 @@ const CourseDetail = () => {
   const userReview = useMemo(() => {
     return reviews.some((r) => r.byUser === auth.user.email);
   }, [reviews]);
-  console.log(reviews);
   useEffect(() => {
     if (course) {
       loadReviews();

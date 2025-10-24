@@ -46,7 +46,7 @@ export const authService = {
           id: user.id,
           email: user.email,
           name: user.userName,
-          isAdmin: false,
+          isAdmin: user.isAdmin,
         },
       });
     } catch (err) {

@@ -15,7 +15,6 @@ import { LoginRoute } from "./routes/LoginRoute";
 import { AdminRoute } from "./routes/AdminRoute";
 const queryClient = new QueryClient();
 const apiUrl = import.meta.env.VITE_GOOGLE_AUTH_CLIENT_ID;
-console.log(apiUrl);
 const App = () => (
   <GoogleOAuthProvider clientId={apiUrl}>
     <AuthProvider>

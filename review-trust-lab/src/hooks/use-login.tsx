@@ -15,8 +15,6 @@ export const useLogin = () => {
         `${url}/auth/google/login`,
         { code }
       );
-      console.log(data);
-      // Expecting backend to return { token, user: { id, email, name, roles } }
       setAuth(data);
       nav("/courses");
     },

@@ -12,12 +12,11 @@ interface ReviewData {
 export const reviewService = {
   async getReviews(courseId: string) {
     const { data: reviews } = await axios.get(`${url}/reviews/${courseId}`);
-    console.log(reviews);
+
     return reviews;
   },
   async addReview(r: ReviewData) {
     let review: any = r;
-    console.log(r.file);
     if (r.file) {
       const fileUrl = await upload(r.file);
       review = {

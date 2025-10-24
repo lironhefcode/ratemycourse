@@ -10,13 +10,11 @@ async function getSignture() {
     const { signature, timestamp } = sigRes.data;
     return { signature, timestamp };
   } catch (error) {
-    console.log(error);
     return null;
   }
 }
 export async function upload(file: File) {
   try {
-    console.log("start");
     const { signature, timestamp } = await getSignture();
     if (!signature || !timestamp) {
       throw new Error("failed to get signture ");
@@ -34,9 +32,7 @@ export async function upload(file: File) {
       formData
     );
     const url = cloudRes.data.secure_url;
-    console.log(url);
+
     return url;
-  } catch (error) {
-    console.log(error);
-  }
+  } catch (error) {}
 }

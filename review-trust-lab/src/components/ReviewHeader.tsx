@@ -9,7 +9,6 @@ type ReviewHederProps = {
   review: Review;
 };
 export function ReviewHeder({ review }: ReviewHederProps) {
-  console.log(review.createdAt);
   return (
     <CardHeader>
       <div className="flex items-start justify-between gap-4">
