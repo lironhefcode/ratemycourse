@@ -16,7 +16,15 @@ const STORAGE_KEY = "auth_state";
 
 export const authService = {
   save(state: AuthState) {
-    delete state.user?.isAdmin;
+    if (!state) {
+      console.error(
+        "AuthService: Attempted to save with null or undefined state. Skipping."
+      );
+      return;
+    }
+    if (state.user) {
+      delete state.user.isAdmin;
+    }
     sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   },
   load(): AuthState {
