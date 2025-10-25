@@ -10,7 +10,6 @@ const addCourseSchema = z.object({
     .string()
     .min(3, "courseCreator to short")
     .max(30, "courseCreator to long"),
-  price: z.number().min(1, "price to low").max(999999, "price to high"),
   category: z.string().min(3, "category to short").max(30, "category to long"),
 });
 export type addCourse = z.infer<typeof addCourseSchema>;

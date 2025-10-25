@@ -52,7 +52,6 @@ export const CourseCard = ({ course }: CourseCardProps) => {
               ({course.reviewCount} ביקורות)
             </span>
           </div>
-          <span className="font-bold text-lg">{"₪" + course.price}</span>
         </CardFooter>
       </Card>
     </Link>

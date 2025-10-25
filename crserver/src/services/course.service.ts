@@ -43,14 +43,13 @@ export const courseService: CourseService = {
   },
   addCourse: async (req: Request, res: Response) => {
     try {
-      const { title, description, courseCreator, price, category, imgUrl } =
+      const { title, description, courseCreator, category, imgUrl } =
         req.body.course;
 
       const course = new Courses({
         title,
         description,
         courseCreator,
-        price,
         category,
         imgUrl,
         reviewCount: 0,

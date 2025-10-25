@@ -15,7 +15,6 @@ export const courseServices = {
     category,
     description,
     img,
-    price,
   }: addCourseForm) {
     try {
       const imgUrl = await upload(img);
@@ -25,7 +24,6 @@ export const courseServices = {
         category,
         description,
         imgUrl,
-        price: parseInt(price),
       };
       const { data } = await axios.post(`${url}/courses`, { course });
     } catch (error) {

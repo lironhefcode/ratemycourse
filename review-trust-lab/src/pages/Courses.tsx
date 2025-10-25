@@ -10,7 +10,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Course } from "@/data/mockData";
+import { categories as categOriesoptions, Course } from "@/data/mockData";
 import { Search } from "lucide-react";
 import { courseServices } from "@/services/course.service";
 import { useCoursesStore } from "@/stores/couresStore";
@@ -21,7 +21,7 @@ const Courses = () => {
   const [category, setCategory] = useState("all");
   const courses = useCoursesStore((state) => state.courses);
   const loadCourses = useCoursesStore((state) => state.loadCourses);
-  const categories = ["all", "שוק ההון", "שיווק"];
+  const categories = [...categOriesoptions, "all"];
   useEffect(() => {
     loadCourses();
   }, []);

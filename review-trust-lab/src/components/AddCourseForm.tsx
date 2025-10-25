@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from "./ui/select";
 import { courseServices } from "@/services/course.service";
+import { categories } from "@/data/mockData";
 
 export type addCourseForm = {
   title: string;
@@ -19,7 +20,6 @@ export type addCourseForm = {
   category: string;
   description: string;
   img: File;
-  price: string;
 };
 
 export function AddCourseForm() {
@@ -36,7 +36,6 @@ export function AddCourseForm() {
       category: "",
       courseCreator: "",
       description: "",
-      price: "",
     },
     mode: "onSubmit",
     reValidateMode: "onChange",
@@ -46,17 +45,6 @@ export function AddCourseForm() {
     await courseServices.add(data);
     reset();
   };
-
-  const categories = [
-    "תכנות",
-    "עיצוב",
-    "שיווק",
-    "עסקים",
-    "פיננסים",
-    "בריאות",
-    "חינוך",
-    "אחר",
-  ];
 
   return (
     <div className="max-w-2xl mx-auto p-6">
@@ -139,24 +127,6 @@ export function AddCourseForm() {
                 <p className="text-sm text-red-500">
                   {errors.description.message}
                 </p>
-              )}
-            </div>
-
-            {/* Price Field */}
-            <div className="space-y-2">
-              <Label htmlFor="price">מחיר הקורס *</Label>
-              <Input
-                id="price"
-                type="number"
-                {...register("price", {
-                  required: "מחיר הקורס הוא שדה חובה",
-                  min: { value: 0, message: "המחיר חייב להיות חיובי" },
-                })}
-                placeholder="הכנס את מחיר הקורס"
-                className={errors.price ? "border-red-500" : ""}
-              />
-              {errors.price && (
-                <p className="text-sm text-red-500">{errors.price.message}</p>
               )}
             </div>
 

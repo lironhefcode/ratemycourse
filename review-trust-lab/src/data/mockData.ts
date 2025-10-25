@@ -7,9 +7,18 @@ export interface Course {
   imgUrl: string;
   reviewAvg: number;
   reviewCount: number;
-  price: string;
 }
-
+export const categories = [
+  "תכנות",
+  "דרופשיפינג",
+  "עיצוב",
+  "שיווק",
+  "עסקים",
+  "פיננסים",
+  "בריאות",
+  "חינוך",
+  "אחר",
+];
 export interface Review {
   _id: string;
   courseId: string;
@@ -33,7 +42,6 @@ export const mockCourses: Course[] = [
       "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800",
     reviewAvg: 4.7,
     reviewCount: 156,
-    price: "₪349",
   },
   {
     _id: "2",
@@ -45,7 +53,6 @@ export const mockCourses: Course[] = [
     imgUrl: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800",
     reviewAvg: 4.9,
     reviewCount: 203,
-    price: "₪499",
   },
   {
     _id: "3",
@@ -58,7 +65,6 @@ export const mockCourses: Course[] = [
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800",
     reviewAvg: 4.5,
     reviewCount: 89,
-    price: "₪399",
   },
   {
     _id: "4",
@@ -71,7 +77,6 @@ export const mockCourses: Course[] = [
       "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=800",
     reviewAvg: 4.8,
     reviewCount: 178,
-    price: "₪449",
   },
   {
     _id: "5",
@@ -84,7 +89,6 @@ export const mockCourses: Course[] = [
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800",
     reviewAvg: 4.6,
     reviewCount: 124,
-    price: "₪549",
   },
   {
     _id: "6",
@@ -96,6 +100,5 @@ export const mockCourses: Course[] = [
     imgUrl: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=800",
     reviewAvg: 4.9,
     reviewCount: 267,
-    price: "₪599",
   },
 ];
